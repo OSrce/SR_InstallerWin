@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Product Id="D986D1DA-2923-4767-80A8-BD39B971D09B" Name="SitRep" Language="1033" Version="0.0.0.2" Manufacturer="OSrce" UpgradeCode="140BF3D5-F9CB-486E-AD0D-A2278BA79F99">
+        <Package Description="Test file in a Product" Comments="Simple test" InstallerVersion="200" Compressed="yes" />
+        <Media Id="1" Cabinet="simple.cab" EmbedCab="yes" />
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="ProgramFilesFolder" Name="PFiles">
+                <Directory Id="SITREP" Name="SitRep">
+                    <Component Id="AVCODEC_54.DLL" DiskId="1" Guid="ED27804E-940E-4A75-B3BC-BE94EDF5270E">
+                        <File Id="AVCODEC_54.DLL" Name="avcodec-54.dll" Source="C:\JON_LOCAL\SR_Installer\SitRep\avcodec-54.dll" />
+                    </Component>
+                    <Component Id="AVFORMAT_54.DLL" DiskId="1" Guid="6D47AEEB-BE0A-4C40-B706-AD2CE0085935">
+                        <File Id="AVFORMAT_54.DLL" Name="avformat-54.dll" Source="C:\JON_LOCAL\SR_Installer\SitRep\avformat-54.dll" />
+                    </Component>
+                    <Component Id="AVUTIL_51.DLL" DiskId="1" Guid="82745383-877E-4D81-9F9C-37B1BF0D3B22">
+                        <File Id="AVUTIL_51.DLL" Name="avutil-51.dll" Source="C:\JON_LOCAL\SR_Installer\SitRep\avutil-51.dll" />
+                    </Component>
+                    <Component Id="CEFCLIENT.EXE" DiskId="1" Guid="AFDB90AE-BD6A-4463-9783-6B467CA4C1AC">
+                        <File Id="CEFCLIENT.EXE" Name="cefclient.exe" Source="C:\JON_LOCAL\SR_Installer\SitRep\cefclient.exe">
+                            <Shortcut Id="desktopShortcut" Directory="DesktopFolder" Name="SitRep" WorkingDirectory="INSTALLDIR" Advertise="yes" Icon="DesktopIcon.exe" IconIndex="0" />
+                        </File>
+                    </Component>
+                    <Component Id="D3DCOMPILER_43.DLL" DiskId="1" Guid="361335BA-F882-4F13-A3F4-9D586E9EAD3B">
+                        <File Id="D3DCOMPILER_43.DLL" Name="d3dcompiler_43.dll" Source="C:\JON_LOCAL\SR_Installer\SitRep\d3dcompiler_43.dll" />
+                    </Component>
+                    <Component Id="D3DX9_43.DLL" DiskId="1" Guid="8A154F8E-C655-43D4-BE3F-94B0760294A8">
+                        <File Id="D3DX9_43.DLL" Name="d3dx9_43.dll" Source="C:\JON_LOCAL\SR_Installer\SitRep\d3dx9_43.dll" />
+                    </Component>
+                    <Component Id="ICUDT.DLL" DiskId="1" Guid="4C27D8D2-7905-406D-BBA8-3230859DDFC5">
+                        <File Id="ICUDT.DLL" Name="icudt.dll" Source="C:\JON_LOCAL\SR_Installer\SitRep\icudt.dll" />
+                    </Component>
+                    <Component Id="LIBCEF.DLL" DiskId="1" Guid="4023B0BC-DB25-4D1E-BEC0-12FED763D43D">
+                        <File Id="LIBCEF.DLL" Name="libcef.dll" Source="C:\JON_LOCAL\SR_Installer\SitRep\libcef.dll" />
+                    </Component>
+                    <Component Id="LIBEGL.DLL" DiskId="1" Guid="761DC298-A4DF-4691-AD1F-9D51D6C5B35C">
+                        <File Id="LIBEGL.DLL" Name="libEGL.dll" Source="C:\JON_LOCAL\SR_Installer\SitRep\libEGL.dll" />
+                    </Component>
+                    <Component Id="LIBGLESV2.DLL" DiskId="1" Guid="66DBFBAE-9BD0-4807-A063-E5ED8DBC56D4">
+                        <File Id="LIBGLESV2.DLL" Name="libGLESv2.dll" Source="C:\JON_LOCAL\SR_Installer\SitRep\libGLESv2.dll" />
+                    </Component>
+                    <Directory Id="LIB" Name="lib">
+                        <Component Id="LIBCEF_DLL_WRAPPER.LIB" DiskId="1" Guid="46736928-C7BC-44FB-8C6D-365A4F34362B">
+                            <File Id="LIBCEF_DLL_WRAPPER.LIB" Name="libcef_dll_wrapper.lib" Source="C:\JON_LOCAL\SR_Installer\SitRep\lib\libcef_dll_wrapper.lib" />
+                        </Component>
+                    </Directory>
+                    <Directory Id="LOCALES" Name="locales">
+                        <Component Id="EN_US.PAK" DiskId="1" Guid="B896A450-A610-4E45-9A0C-0D5CE36E5C33">
+                            <File Id="EN_US.PAK" Name="en-US.pak" Source="C:\JON_LOCAL\SR_Installer\SitRep\locales\en-US.pak" />
+                        </Component>
+                    </Directory>
+                </Directory>
+            </Directory>
+            <Directory Id="ProgramMenuFolder">
+                <Directory Id="ProgramMenuDir" Name="SitRep">
+                    <Component Id="StartMenuShortcuts" Guid="4A052E8D-8299-48F5-8C19-0D7546C75EA6">
+                        <RemoveFolder Id="ProgramMenuDir" On="uninstall" />
+                        <RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Type="string" Value="" />
+                    </Component>
+                </Directory>
+            </Directory>
+            <Directory Id="DesktopFolder" />
+        </Directory>
+        <Feature Id="DefaultFeature" Title="Main Feature" Level="1">
+            <ComponentRef Id="AVCODEC_54.DLL" />
+            <ComponentRef Id="AVFORMAT_54.DLL" />
+            <ComponentRef Id="AVUTIL_51.DLL" />
+            <ComponentRef Id="CEFCLIENT.EXE" />
+            <ComponentRef Id="D3DCOMPILER_43.DLL" />
+            <ComponentRef Id="D3DX9_43.DLL" />
+            <ComponentRef Id="ICUDT.DLL" />
+            <ComponentRef Id="LIBCEF.DLL" />
+            <ComponentRef Id="LIBEGL.DLL" />
+            <ComponentRef Id="LIBGLESV2.DLL" />
+            <ComponentRef Id="LIBCEF_DLL_WRAPPER.LIB" />
+            <ComponentRef Id="EN_US.PAK" />
+            <ComponentRef Id="StartMenuShortcuts" />
+        </Feature>
+        <UI />
+        <Icon Id="StartMenuIcon.exe" SourceFile="C:\JON_LOCAL\SR_Installer\SitRep\cefclient.exe" />
+        <Icon Id="DesktopIcon.exe" SourceFile="C:\JON_LOCAL\SR_Installer\SitRep\cefclient.exe" />
+    </Product>
+</Wix>
